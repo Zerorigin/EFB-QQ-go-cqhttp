@@ -28,10 +28,11 @@ RUN set -ex \
     && apk add --no-cache --virtual .build-deps build-base cmake git jpeg-dev libffi-dev libwebp-dev openjpeg-dev openssl-dev zlib-dev \
     && pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple \
     && /usr/local/bin/python -m pip install --upgrade pip && pip3 install wheel \
-    && pip3 install webp Pillow==9.0.1 `# for EFB` \
-    && pip3 install ehforwarderbot efb-qq-slave python-telegram-bot[socks] efb-telegram-master \
+    && pip3 install webp Pillow==9.0.1 python-telegram-bot[socks] `# for EFB` \
+    && pip3 install ehforwarderbot efb-qq-slave \
     && pip3 install git+https://github.com/ehForwarderBot/efb-qq-plugin-go-cqhttp \
     && pip3 install git+https://github.com/xzsk2/efb-filter-middleware \
+    && pip3 install efb-telegram-master \
     && rm -rf ~/.cache/pip/* && apk del .build-deps
 
 # Download and Install go-cqhttp
