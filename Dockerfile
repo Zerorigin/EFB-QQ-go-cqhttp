@@ -48,6 +48,7 @@ RUN set -ex \
 # Copy config files and s6-overlay settings
 COPY ./apps /apps
 COPY rootfs /
+RUN set -ex && chmod -R +x /etc/s6-overlay/s6-rc.d
 
 # Health Check
 HEALTHCHECK --start-period=45s --interval=10s --timeout=3s \
