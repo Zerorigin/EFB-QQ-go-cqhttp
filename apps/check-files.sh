@@ -7,7 +7,7 @@ if [ ! -d "/apps/EFB" ]; then
     cp -r /apps/EFB.Backup /apps/EFB
 else
 
-    cd /apps/EFB && mkdir -p blueset.telegram milkice.qq
+    cd /apps/EFB && mkdir -p blueset.telegram milkice.qq xzsk2.filter
 
     # Check if the configuration files is exists
 
@@ -21,6 +21,10 @@ else
 
     if [ ! -f "/apps/EFB/milkice.qq/config.yaml" ]; then
         cp /apps/EFB.Backup/milkice.qq/config.yaml /apps/EFB/milkice.qq/
+    fi
+
+    if [ ! -f "/apps/EFB/xzsk2.filter/config.yaml" ]; then
+        cp /apps/EFB.Backup/xzsk2.filter/config.yaml /apps/EFB/xzsk2.filter/
     fi
 
 fi
