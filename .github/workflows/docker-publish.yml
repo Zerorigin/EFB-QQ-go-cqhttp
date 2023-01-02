@@ -30,7 +30,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: zerorigin/efb-qq-go-cqhttp
+          images: orcinusorcas/efb-qq-go-cqhttp
           tags: latest
 
       - name: Build and push Docker image

@@ -9,7 +9,7 @@ ehForwarderBot with Telegram Bot to receive QQ messages
 ```
 # 基础的 Docker 组件安装及使用方法这边不再累赘(容器镜像亦可用于 Podman 等)
 # 拉取 Docker Container Image 镜像
-docker pull zerorigin/efb-qq-go-cqhttp:latest
+docker pull orcinusorcas/efb-qq-go-cqhttp:latest
 ```
 
 
@@ -42,7 +42,7 @@ docker run -it --rm --name="efbqq" \
     -e CFG_CQHTTP_QQ=10001 \
     -v /宿主/EFBQQ/data.d/ehforwarderbot/:/apps/EFB/ \
     -v /宿主/EFBQQ/data.d/go-cphttp/:/apps/go-cqhttp/conf.d/ \
-    zerorigin/efb-qq-go-cqhttp:latest
+    orcinusorcas/efb-qq-go-cqhttp:latest
 
 # 登录 QQ 后使用另一个 shell 窗口使用此命令 `docker stop efbqq` 停止现有容器服务
 # 配置文件生成后，可使用此方式以继续使用现有的配置档案
@@ -54,7 +54,7 @@ docker run --name="efbqq" \
     -e CFG_CQHTTP_QQ=10001 \
     -v /宿主/EFBQQ/data.d/ehforwarderbot/:/apps/EFB/ \
     -v /宿主/EFBQQ/data.d/go-cphttp/:/apps/go-cqhttp/conf.d/ \
-    -d zerorigin/efb-qq-go-cqhttp:latest
+    -d orcinusorcas/efb-qq-go-cqhttp:latest
 
 # 此后每次修改配置文件，可使用 `docker rstart efbqq` 来重启容器服务
 
@@ -67,7 +67,7 @@ docker run --name="efbqq" \
 
 1、克隆项目文件到本地主机上
 ```shell
-git clone --depth 1 https://github.com/Zerorigin/EFB-QQ-go-cqhttp.git
+git clone --depth 1 https://github.com/orcinusorcas/EFB-QQ-go-cqhttp.git
 ```
 
 2、根据需要修改项目根目录下的 `.env` 文件

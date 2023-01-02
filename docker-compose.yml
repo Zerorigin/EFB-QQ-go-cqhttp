@@ -1,9 +1,12 @@
 version: "3.8"
 services:
   efbqq:
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: efbqq
     hostname: efbqq
-    image: zerorigin/efb-qq-go-cqhttp:latest
+    image: orcinusorcas/efb-qq-go-cqhttp:latest
     environment:
       TZ: Asia/Shanghai
     env_file: .env
