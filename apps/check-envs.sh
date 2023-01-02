@@ -35,7 +35,10 @@ fi
 
 if [[ ! -z "${CFG_MODS_FILTER}" ]]; then
 
-    yq -i '.middlewares += ["xzsk2.filter"]' /apps/EFB/config.yaml
+    if [ $(yq '.middlewares.[] | select(. == "xzsk2.filter")' /apps/EFB/config.yaml | wc -l) -eq 0 ]; then
+        yq -i '.middlewares += ["xzsk2.filter"]' /apps/EFB/config.yaml
+    fi
+
     if [ ! -f "/apps/EFB/xzsk2.filter/config.yaml" ]; then
         cd /apps/EFB/ && mkdir -p xzsk2.filter
         cp /apps/EFB.Backup/xzsk2.filter/config.yaml /apps/EFB/xzsk2.filter/
