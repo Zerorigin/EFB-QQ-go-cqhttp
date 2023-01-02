@@ -1,0 +1,8 @@
+#!/command/with-contenv sh
+
+set -ex
+
+ash /apps/check-files.sh >/dev/null 2>&1
+ash /apps/check-envs.sh >/dev/null 2>&1
+
+exit 0
