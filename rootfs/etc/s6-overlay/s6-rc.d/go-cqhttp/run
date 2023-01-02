@@ -1,4 +1,4 @@
-#!/command/with-contenv sh
+#!/usr/bin/with-contenv sh
 
 set -ex && sleep 1 && /usr/local/bin/go-cqhttp -w /apps/go-cqhttp/conf.d || exit 1
 

@@ -1,4 +1,4 @@
-#!/command/with-contenv sh
+#!/usr/bin/with-contenv sh
 
 set -ex && sleep 2 && /usr/local/bin/ehforwarderbot -p /apps/EFB >/dev/null 2>&1 || exit 1
 

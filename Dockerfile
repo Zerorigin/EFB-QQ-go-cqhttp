@@ -23,6 +23,16 @@ RUN set -ex \
     && ln -sf $(echo /usr/share/zoneinfo/${TZ}) /etc/localtime \
     && echo ${TZ} > /etc/timezone
 
+# Download and Install go-cqhttp
+RUN set -ex \
+    && mkdir -p /apps/go-cqhttp && cd go-cqhttp \
+    && curl --http2 --tlsv1.3 -Ls https://github.com/Mrs4s/go-cqhttp/releases/latest/download/go-cqhttp_linux_amd64.tar.gz -o ./go-cqhttp.tgz \
+    && tar axvf ./go-cqhttp.tgz && rm -f ./go-cqhttp.tgz \
+    && chmod +x ./go-cqhttp && echo | ./go-cqhttp \
+    && mv ./config.yml ./config.default.yml \
+    && ln -sf /apps/go-cqhttp/go-cqhttp /usr/local/bin/go-cqhttp \
+    && chmod +x /usr/local/bin/go-cqhttp
+
 # Install EFB & EFB Modules
 RUN set -ex \
     && apk add --no-cache --virtual .build-deps build-base cmake git jpeg-dev libffi-dev libwebp-dev openjpeg-dev openssl-dev zlib-dev \
@@ -34,16 +44,6 @@ RUN set -ex \
     && pip3 install git+https://github.com/xzsk2/efb-filter-middleware \
     && pip3 install efb-telegram-master \
     && rm -rf ~/.cache/pip/* && apk del .build-deps
-
-# Download and Install go-cqhttp
-RUN set -ex \
-    && mkdir -p /apps/go-cqhttp && cd go-cqhttp \
-    && curl --http2 --tlsv1.3 -Ls https://github.com/Mrs4s/go-cqhttp/releases/latest/download/go-cqhttp_linux_amd64.tar.gz -o ./go-cqhttp.tgz \
-    && tar axvf ./go-cqhttp.tgz && rm -f ./go-cqhttp.tgz \
-    && chmod +x ./go-cqhttp && echo | ./go-cqhttp \
-    && mv ./config.yml ./config.default.yml \
-    && ln -sf /apps/go-cqhttp/go-cqhttp /usr/local/bin/go-cqhttp \
-    && chmod +x /usr/local/bin/go-cqhttp
 
 # Copy config files and s6-overlay settings
 COPY ./apps /apps
