@@ -56,7 +56,7 @@ docker run --name="efbqq" \
     -v /宿主/EFBQQ/data.d/go-cphttp/:/apps/go-cqhttp/conf.d/ \
     -d orcinusorcas/efb-qq-go-cqhttp:latest
 
-# 此后每次修改配置文件，可使用 `docker rstart efbqq` 来重启容器服务
+# 此后每次修改配置文件，可使用 `docker restart efbqq` 来重启容器服务
 
 ```
 
@@ -77,7 +77,7 @@ git clone --depth 1 https://github.com/orcinusorcas/EFB-QQ-go-cqhttp.git
 4、初次生成并调试完配置文件，可使用组合键 `Ctrl+C` 来停止当前容器，此后使用
 `docker-compose up -d` 在后台启动容器服务即可
 
-5、并且每次修改配置文件，一样可使用 `docker rstart efbqq` 来重启容器服务
+5、并且每次修改配置文件，一样可使用 `docker restart efbqq` 来重启容器服务
 
 
 
