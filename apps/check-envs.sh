@@ -1,6 +1,11 @@
 #!/bin/ash
 
-set -ex
+# Set debug Mode
+if [[ ! -z "${DEBUG}" ]]; then
+    set -ex
+else
+    set -e +x
+fi
 
 #############################
 #
