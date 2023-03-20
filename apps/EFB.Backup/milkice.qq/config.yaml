@@ -1,0 +1,7 @@
+Client: GoCQHttp # 指定要使用的 QQ 客户端(此处为 GoCQHttp)
+GoCQHttp:
+  type: HTTP # 指定 efb-qq-plugin-go-cqhttp 与 GoCQHttp 通信的方式(现阶段仅支持 HTTP)
+  access_token:
+  api_root: http://127.0.0.1:5700/ # GoCQHttp API 接口地址:端口
+  host: 0.0.0.0 # efb-qq-slave 监听地址
+  port: 8000 # efb-qq-slave 监听端口

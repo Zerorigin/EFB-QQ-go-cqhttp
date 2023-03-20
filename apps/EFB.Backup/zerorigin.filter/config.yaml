@@ -1,0 +1,28 @@
+# 配置参考：https://github.com/zerorigin/efb-filter-middleware
+version: 4.99 # 版本号(浮点型) - 随意写，一般无需修改
+
+match_mode: fuzz # fuzz 关键字模式 / exact 完整词组精确匹配模式
+strict_mode: yes # 严格模式 - on/true/yes | off/false/no
+
+work_filters: # 工作模式 - 组合
+  - black_persons # 黑名单好友，过滤列表内好友消息 - (注意必须启用：否则无法接收任意私聊信息)
+  - white_groups # 白名单群组，仅接受列表内群组消息
+  # - white_persons # 白名单好友，仅接受列表内好友消息
+  # - black_groups # 黑名单群组，过滤列表内群组消息
+
+# 以下列表里的元素必须是“字符串或长整型数值”
+# 并且字符串建议用半角英文双引号引起来，避免不必要的特殊字符识别问题
+white_groups:
+  - 123456
+  - "*"
+
+# white_persons:
+# - "李白(libai)"
+# - "杜甫(dufu)"
+
+black_persons: # 如果不想漏收任意私聊消息，则一定要启用此列表，并且至少添加一个不存在于你好友列表的好友昵称或备注
+  - "bde3a92f-bc74-4292-bb80-7e5fcd048592" # 防止错误过滤私聊消息用的随机字符串(不知道如何使用的情况下请勿删除此行)
+
+# black_groups:
+# - "black_group_a_name_keyword(群组A)"
+# - "black_group_b_name_keyword(群组B)"

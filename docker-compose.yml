@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  efbqq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: efbqq
+    hostname: efbqq
+    image: orcinusorcas/efb-qq-go-cqhttp:latest
+    environment:
+      TZ: Asia/Shanghai
+    env_file: .env
+    network_mode: host
+    restart: always
+    volumes:
+      - "./data.d/ehforwarderbot/:/apps/EFB/:rw"
+      - "./data.d/go-cphttp/:/apps/go-cqhttp/conf.d/:rw"
+
+# 配置参考资料:
+# https://docs.docker.com/compose/compose-file/compose-versioning/
+# https://docs.docker.com/compose/compose-file/

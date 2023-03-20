@@ -1,0 +1,13 @@
+#!/command/with-contenv sh
+
+# Set debug Mode
+if [[ ! -z "${DEBUG}" ]]; then
+    set -ex
+else
+    set -e +x
+fi
+
+sleep 1
+/usr/local/bin/go-cqhttp -w /apps/go-cqhttp/conf.d || exit 1
+
+exit 0

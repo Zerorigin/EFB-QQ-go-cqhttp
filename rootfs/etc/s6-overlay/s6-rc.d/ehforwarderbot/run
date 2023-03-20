@@ -1,0 +1,13 @@
+#!/command/with-contenv sh
+
+# Set debug Mode
+if [[ ! -z "${DEBUG}" ]]; then
+    set -ex
+else
+    set -e +x
+fi
+
+sleep 2
+/usr/local/bin/ehforwarderbot -p /apps/EFB >/dev/null 2>&1 || exit 1
+
+exit 0

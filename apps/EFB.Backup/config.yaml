@@ -1,0 +1,7 @@
+master_channel: blueset.telegram
+
+slave_channels:
+  - milkice.qq
+
+# middlewares: # 新手小白待阅读完全文后再按需添加，否则启动会报错
+#   - zerorigin.filter # 根据自己的情况决定是否启用 - 使用参考: https://github.com/zerorigin/efb-filter-middleware

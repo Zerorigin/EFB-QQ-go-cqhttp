@@ -1,0 +1,13 @@
+#!/command/with-contenv sh
+
+# Set debug Mode
+if [[ ! -z "${DEBUG}" ]]; then
+    set -ex
+else
+    set -e +x
+fi
+
+ash /apps/check-files.sh >/dev/null 2>&1
+ash /apps/check-envs.sh >/dev/null 2>&1
+
+exit 0
