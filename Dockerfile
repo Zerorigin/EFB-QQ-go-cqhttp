@@ -1,10 +1,12 @@
 FROM python:3-alpine
-LABEL blogger="清雨@https://blog.gazer.win/"
-LABEL maintainer="Zerorigin <871670172@qq.com>"
+LABEL \
+    blogger="清雨@https://blog.gazer.win/" \
+    maintainer="Zerorigin <871670172@qq.com>"
 
 # Init system envs
-ENV LANG C.UTF-8
-ENV TZ "Asia/Shanghai"
+ENV \
+    LANG=C.UTF-8 \
+    TZ=Asia/Shanghai
 
 # Change to work directory and expose the ports
 WORKDIR /apps
